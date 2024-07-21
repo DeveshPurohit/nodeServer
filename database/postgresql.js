@@ -6,5 +6,5 @@ const client = new Client({
   password: 'LD4KEZran&iOmUlc',
   port: 5432,
 })
-module.exports = {client}
+module.exports = { client }
 
