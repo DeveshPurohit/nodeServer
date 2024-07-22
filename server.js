@@ -10,7 +10,7 @@ app.get("/api/home", (req, res) => {
 })
 
 app.get("/api/news", async (req, res) => {
-    const data = await fetch(`https://newsapi.org/v2/everything?q=keyword&apiKey=10557eccd8b649aeab0cffd08f3be1fe`)
+    const data = await fetch(`https://newsapi.org/v2/everything?q=keyword&apiKey=${process.env.NAPIKEY}`)
     const news = await data.json();
     res.json({news: news.articles.slice(0,3)})
 })
@@ -27,7 +27,7 @@ app.get("/api/weather", async (req, res) => {
 
 // Function to fetch weather data
 async function getWeatherData(city) {
-  const apiKey = "79a1b815c691c980592c459fef230738";
+  const apiKey = process.env.WAPIKEY;
   const weatherURL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&APPID=${apiKey}`;
   try {
     const response = await fetch(weatherURL);
